@@ -42,19 +42,19 @@ public class Main{
 		    emailIn = in.nextLine();
 		    
 		    System.out.println("The passwords must be at least 6 characters long!");
-    		System.out.print("Please enter your password: ");
-    		pwIn = in.nextLine();
+		    System.out.print("Please enter your password: ");
+	            pwIn = in.nextLine();
     		
-    		System.out.print("Please verify your password: ");
-    	    pwVerIn = in.nextLine();
-    		
-    		user.setFirstName(fNameIn);
-    		user.setLastName(lNameIn);
-    		user.setIdNumber(idIn);
-    		user.setEmail(emailIn);
-    		user.setPassword(pwIn);
-    		user.setPasswordRe(pwVerIn);
-    		
+    		    System.out.print("Please verify your password: ");
+    	    	    pwVerIn = in.nextLine();
+
+			user.setFirstName(fNameIn);
+			user.setLastName(lNameIn);
+			user.setIdNumber(idIn);
+			user.setEmail(emailIn);
+			user.setPassword(pwIn);
+			user.setPasswordRe(pwVerIn);
+
     		if(Arrays.toString(user.getPassword()).equals(Arrays.toString(user.getPasswordRe())) 
     		    && !fNameIn.isEmpty() 
     		    && !lNameIn.isEmpty()
