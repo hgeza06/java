@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
  
 
-
 public class Main{
 
     static List<Users> userData = new ArrayList<>();
@@ -38,6 +37,7 @@ public class Main{
 		    System.out.print("Please enter your email address: ");
 		    emailIn = in.nextLine();
 		    
+		    System.out.println("The passwords must be at least 6 characters long!");
     		System.out.print("Please enter your password: ");
     		pwIn = in.nextLine();
     		
@@ -154,12 +154,15 @@ class Users{
         String pwToString = pw.toString();
         String pwReToString = pw1.toString();
         
-        if(pwToString.equals(pwReToString)){
+        if(pwToString.equals(pwReToString) && pwToString.length() >= 6 && pwReToString.length() >= 6){
             return true;
         } else {
             return false;
         }
     }
+    
+    
+    
     
     public void setName(String name){
         this.name = name;
