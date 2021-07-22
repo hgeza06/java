@@ -76,8 +76,14 @@ public class Main{
 		char ans = in.next().charAt(0);
 		
 		if(ans == 'Y'){
-		    
-		    System.out.println(Arrays.toString(userData));
+		    System.out.println("");
+		    for(Users data : userData){
+		        System.out.println("Name: " + data.getName());
+		        System.out.println("ID card number: " + data.getIdNumber());
+		        System.out.println("Email: " + data.getEmail());
+		        System.out.println("Password: " + data.getPassword());
+		        //System.out.println(data.getPasswordRe());
+		    }
 		    
 		} else if(ans == 'N') {
 		    try{
@@ -140,8 +146,6 @@ class Users{
     public Users(){
         
     }
-    
-    
     
     public Boolean isVerified(char[] pw, char[] pw1){
         pw = this.password;
