@@ -61,7 +61,7 @@ public class Main{
     		    System.out.println("\nData successfully has been set!");  
     		        
     		    } else {
-    	        System.out.println("\nData do not match or you left something blank! Try again please please!");
+    	        System.out.println("\nData do not match or you left something blank! Try again please!");
     	    }
     	    
 		}while(!(Arrays.toString(user.getPassword()).equals(Arrays.toString(user.getPasswordRe())) 
