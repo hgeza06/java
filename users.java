@@ -9,11 +9,15 @@ Code, Compile, Run and Debug online from anywhere in world.
 import java.util.Scanner;
 import java.lang.*;
 import java.util.Arrays;
-import java.util.arrayList;
+import java.util.ArrayList;
+import java.util.List;
+ 
 
 
-public class Main
-{
+public class Main{
+
+    static List<Users> userData = new ArrayList<>();
+
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Users user = new Users();
@@ -51,13 +55,9 @@ public class Main
     		    && !idIn.isEmpty()
     		    && !emailIn.isEmpty()){
     	        
-    	        ArrayList<Users> userData = new ArrayList<Users>();
-    	        usersData.add(users.getName);
-    	        usersData.add(users.getIdNumber);
-    	        usersData.add(users.getEmail);
-    	        usersData.add(users.getPassword);
-    	        usersData.add(users.getPasswordRe);
-    	    
+    	        userData.add(new Users(user.getName(), user.getIdNumber(), user.getEmail(),
+    	                               user.getPassword(), user.getPasswordRe()));
+    	                               
     		    System.out.println("\nData successfully has been set!");  
     		        
     		    } else {
@@ -77,26 +77,33 @@ public class Main
 		
 		if(ans == 'Y'){
 		    
-		    for(Users data : userData){
-		        System.out.println(data);
-		    }
+		    System.out.println(Arrays.toString(userData));
 		    
 		} else if(ans == 'N') {
-		     System.out.println("Exiting program...");
-		} else {
 		    try{
-		    System.out.println("\nYou only allowed to type Y or N, the program will quit!");
-		    Thread.sleep(2000L);
-		    System.out.println("...");
-		    Thread.sleep(1500L);
-		    System.out.println("..");
-		    Thread.sleep(1000L);
-		    System.out.println("The program finished!");
-		        
-		    }catch(InterruptedException e){
+		     System.out.println("...");
+             Thread.sleep(2000L);
+		     System.out.println("Exiting program...");
+		    } catch(InterruptedException e) {
 		        System.err.println("Error: " + e.getMessage().toString());
 		    }
-		}
+		        
+		} else {
+		        
+    	    try{
+    		        
+        	    System.out.println("\nYou only allowed to type Y or N, the program will quit!");
+    		    Thread.sleep(2000L);
+    		    System.out.println("...");
+    		    Thread.sleep(1500L);
+    		    System.out.println("..");
+    		    Thread.sleep(1000L);
+    		    System.out.println("The program finished!");
+    		        
+		    }catch(InterruptedException e){
+		        System.err.println("Error: " + e.getMessage().toString());
+		 }
+	}
 		    
 		
 	/*	
@@ -120,6 +127,19 @@ class Users{
     private String email;
     private char[] password;
     private char[] passwordRe;
+    
+    
+    public Users(String name, String idNumber, String email, char[] password, char[] passwordRe){
+        this.name = name;
+        this.idNumber = idNumber;
+        this.email = email;
+        this.password = password;
+        this.passwordRe = passwordRe;
+    }
+    
+    public Users(){
+        
+    }
     
     
     
