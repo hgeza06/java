@@ -21,15 +21,19 @@ public class Main{
 		Scanner in = new Scanner(System.in);
 		Users user = new Users();
 		
-		String nameIn;
+		String fNameIn;
+		String lNameIn;
 		String idIn;
 		String emailIn;
 		String pwIn;
 		String pwVerIn;
 		
 		do{
-		    System.out.print("Please enter Your name: ");
-		    nameIn = in.nextLine();
+		    System.out.print("Please enter Your first name: ");
+		    fNameIn = in.nextLine();
+		    
+		    System.out.print("Please enter your family name: ");
+		    lNameIn = in.nextLine();
 		    
 		    System.out.print("Please enter Your ID card number: ");
 		    idIn = in.nextLine();
@@ -44,28 +48,32 @@ public class Main{
     		System.out.print("Please verify your password: ");
     	    pwVerIn = in.nextLine();
     		
-    		user.setName(nameIn);
+    		user.setFirstName(fNameIn);
+    		user.setLastName(lNameIn);
     		user.setIdNumber(idIn);
     		user.setEmail(emailIn);
     		user.setPassword(pwIn);
     		user.setPasswordRe(pwVerIn);
     		
     		if(Arrays.toString(user.getPassword()).equals(Arrays.toString(user.getPasswordRe())) 
-    		    && !nameIn.isEmpty() 
+    		    && !fNameIn.isEmpty() 
+    		    && !lNameIn.isEmpty()
     		    && !idIn.isEmpty()
     		    && !emailIn.isEmpty()){
     	        
-    	        userData.add(new Users(user.getName(), user.getIdNumber(), user.getEmail(),
-    	                               user.getPassword(), user.getPasswordRe()));
+    	        userData.add(new Users(user.getFirstName(), user.getLastName(), user.getIdNumber(), user.getEmail(),
+    	                               user.getPassword(), user.getPasswordRe())); //add data to the list
     	                               
     		    System.out.println("\nData successfully has been set!");  
     		        
     		    } else {
+    		        
     	        System.out.println("\nData do not match or you left something blank! Try again please!");
     	    }
     	    
 		}while(!(Arrays.toString(user.getPassword()).equals(Arrays.toString(user.getPasswordRe())) 
-    		    && !nameIn.isEmpty() 
+    		    && !fNameIn.isEmpty()
+    		    && !lNameIn.isEmpty()
     		    && !idIn.isEmpty()
     		    && !emailIn.isEmpty()
     		    && !pwIn.isEmpty()
@@ -78,7 +86,8 @@ public class Main{
 		if(ans == 'Y'){
 		    System.out.println("");
 		    for(Users data : userData){
-		        System.out.println("Name: " + data.getName());
+		        System.out.println("First name: " + data.getFirstName());
+		        System.out.println("Last name: " + data.getLastName());
 		        System.out.println("ID card number: " + data.getIdNumber());
 		        System.out.println("Email: " + data.getEmail());
 		        System.out.println("Password: " + data.getPassword());
@@ -128,15 +137,17 @@ public class Main{
 
 
 class Users{
-    private String name;
+    private String firstName; // given name
+    private String lastName; //family name
     private String idNumber;
     private String email;
     private char[] password;
     private char[] passwordRe;
     
     
-    public Users(String name, String idNumber, String email, char[] password, char[] passwordRe){
-        this.name = name;
+    public Users(String firstName,String lastName, String idNumber, String email, char[] password, char[] passwordRe){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.idNumber = idNumber;
         this.email = email;
         this.password = password;
@@ -164,8 +175,12 @@ class Users{
     
     
     
-    public void setName(String name){
-        this.name = name;
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+    
+    public void setLastName(String lastName){
+        this.lastName = lastName;
     }
     
     public void setIdNumber(String idNumber){
@@ -185,8 +200,12 @@ class Users{
         this.passwordRe = passwordRe.toCharArray();
     }
     
-    public String getName(){
-        return this.name;
+    public String getFirstName(){
+        return this.firstName;
+    }
+    
+    public String getLastName(){
+        return this.lastName;
     }
     
     public String getIdNumber(){
@@ -205,3 +224,7 @@ class Users{
         return this.passwordRe;
     }
 }
+
+
+
+
