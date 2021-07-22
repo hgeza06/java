@@ -49,9 +49,9 @@ public class Main
     		    && !nameIn.isEmpty() 
     		    && !idIn.isEmpty()
     		    && !emailIn.isEmpty()){
-    	        System.out.println("Data successfully has been set!");
+    	        System.out.println("\nData successfully has been set!");
     	    } else {
-    	        System.out.println("Data do not match or you left something blank! Try again please please!");
+    	        System.out.println("\nData do not match or you left something blank! Try again please please!");
     	    }
     	    
 		}while(!(Arrays.toString(user.getPassword()).equals(Arrays.toString(user.getPasswordRe())) 
@@ -71,12 +71,12 @@ public class Main
 		     System.out.println("Exiting program...");
 		} else {
 		    try{
-		    System.out.println("You only allowed to type Y or N, the program will quit!");
-		    Thread.sleep(600L);
+		    System.out.println("\nYou only allowed to type Y or N, the program will quit!");
+		    Thread.sleep(2000L);
 		    System.out.println("...");
-		    Thread.sleep(500L);
+		    Thread.sleep(1500L);
 		    System.out.println("..");
-		    Thread.sleep(400L);
+		    Thread.sleep(1000L);
 		    System.out.println("The program finished!");
 		        
 		    }catch(InterruptedException e){
