@@ -9,6 +9,7 @@ Code, Compile, Run and Debug online from anywhere in world.
 import java.util.Scanner;
 import java.lang.*;
 import java.util.Arrays;
+import java.util.arrayList;
 
 
 public class Main
@@ -49,8 +50,17 @@ public class Main
     		    && !nameIn.isEmpty() 
     		    && !idIn.isEmpty()
     		    && !emailIn.isEmpty()){
-    	        System.out.println("\nData successfully has been set!");
-    	    } else {
+    	        
+    	        ArrayList<Users> userData = new ArrayList<Users>();
+    	        usersData.add(users.getName);
+    	        usersData.add(users.getIdNumber);
+    	        usersData.add(users.getEmail);
+    	        usersData.add(users.getPassword);
+    	        usersData.add(users.getPasswordRe);
+    	    
+    		    System.out.println("\nData successfully has been set!");  
+    		        
+    		    } else {
     	        System.out.println("\nData do not match or you left something blank! Try again please please!");
     	    }
     	    
@@ -66,7 +76,11 @@ public class Main
 		char ans = in.next().charAt(0);
 		
 		if(ans == 'Y'){
-		    System.out.println("Print data...");
+		    
+		    for(Users data : userData){
+		        System.out.println(data);
+		    }
+		    
 		} else if(ans == 'N') {
 		     System.out.println("Exiting program...");
 		} else {
